@@ -3,6 +3,9 @@ import glob
 import pre_process
 import cnn_model
 import numpy as np
+from skimage import io
+from keras.optimizers import SGD
+from keras.callbacks import LearningRateScheduler, ModelCheckpoint
 
 def get_class(img_path):
     return int(img_path.split('/')[-2])

@@ -3,6 +3,7 @@ import numpy as np
 import os
 import pre_process
 import cnn_model
+from skimage import io
 
 test = pd.read_csv('GT-final_test.csv',sep=';')
 
@@ -22,5 +23,5 @@ y_test = np.array(y_test)
 
 # predict and evaluate
 y_pred = model.predict_classes(X_test)
-acc = np.sum(y_pred==y_test)/np.size(y_pred)
+acc = np.sum(y_pred==y_test)*1.0/np.size(y_pred)
 print("Test accuracy = {}".format(acc))
