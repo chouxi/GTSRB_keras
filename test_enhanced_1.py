@@ -4,6 +4,8 @@ import os
 import pre_process_last
 import vgg16_model
 from skimage import io
+from keras.models import Sequential
+from keras.layers import Flatten, Dense, Dropout
 
 test = pd.read_csv('GT-final_test.csv',sep=';')
 
@@ -14,6 +16,7 @@ top_model.add(Flatten(input_shape=model.output_shape[1:]))
 top_model.add(Dense(256, activation='relu'))
 top_model.add(Dropout(0.5))
 top_model.add(Dense(pre_process_last.NUM_CLASSES, activation='softmax'))
+model.add(top_model)
 
 model.load_weights('enhance_1_model.h5')
 # Load test dataset
