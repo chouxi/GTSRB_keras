@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import os
-import pre_process_last
+import pre_process
 import cnn_model_batch_norm
 from skimage import io
 
@@ -16,7 +16,7 @@ y_test = []
 i = 0
 for file_name, class_id  in zip(list(test['Filename']), list(test['ClassId'])):
     img_path = os.path.join('GTSRB/Final_Test/Images/',file_name)
-    X_test.append(pre_process_last.preprocess_img(io.imread(img_path)))
+    X_test.append(pre_process.preprocess_img(io.imread(img_path)))
     y_test.append(class_id)
     
 X_test = np.array(X_test)
