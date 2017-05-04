@@ -6,10 +6,12 @@ import numpy as np
 from skimage import io
 from keras.optimizers import SGD
 from keras.callbacks import LearningRateScheduler, ModelCheckpoint
+from keras import backend as K
 
 def get_class(img_path):
     return int(img_path.split('/')[-2])
 
+K.set_image_dim_ordering('th')
 root_dir = 'GTSRB/Final_Training/Images/'
 imgs = []
 labels = []

@@ -1,0 +1,20 @@
+1. What is epoch? What is the relation between an epoch and an iteration?
+   One epoch is one forward pass and one backward pass of all the training examples
+   One iteration is one forward pass and one backward pass of a batch number of training examples.
+
+2. What is learning rate? What is the effect if increasing it?
+   The learning rate of a controls the trade off between belief in previous model before update and how much to learn from the data.
+   When increasing learning rate of NN, it's more likely to overshoting the convergence points but also less likely to stuck in the local minimum points.
+
+3. What is batch size? Suppose the memory is unlimited, what is the most ideal batch size then? In that case, how many batches are taken per epoch?
+   Batch size is the number of training examples in one forward/backward pass. The higher the batch size, the more memory space needed.
+   The ideal batch size is the number of all the training samples. with the batch size increasing, the accuracy of training increasing too.
+   In this case, one batch taken in one epoch.
+
+4. How much is a feature map shrunk by a 2x2 max-pooling layer? The baseline network has 3 2x2 max-pooling layers, thus what is the size of the output feature map after the last max-pooling layer, if the input feature map is 48x48?
+   The feature map became 1/4 in area, 1/2 in edge length.
+   After 3 2x2 max-pooling layers, the feature map becomes 6x6.
+
+5. What is a Dropout layer and why do we need it?
+   Dropout refers to dropping out units (hidden and visible) in a neural network.
+   Drepout prevents overfitting and provides a way of approximately combining exponentially many different neural network architectures efficiently.
